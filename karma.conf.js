@@ -10,8 +10,12 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-coverage-istanbul-reporter'),
+      require('korma-sonarqube-unit-reporter')
+
     ],
+    
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
@@ -21,6 +25,33 @@ module.exports = function (config) {
       },
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
+    coveragelstanbulReporter: {
+
+      dir: require('path').join(_dirname, 'coverage'),
+      
+      reports: ['lcovonly'],
+      
+      fixWebpackSourcePaths: true
+      
+      },
+      
+      reporters: [ 'sonarqubeUnit' ],
+      
+      sonarQubeUnitReporter: {
+      
+           sonarQubeVersion: 'LATEST',
+      
+           outputfile: 'test-reports/ut_repor.xml',
+      
+           overrideTestDescription: true,
+      
+           testPaths: ['./src'],
+      
+           testFilePattern: '.spec.ts',
+      
+           useBrowserName: false
+      
+      },
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
