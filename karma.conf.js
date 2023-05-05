@@ -11,7 +11,7 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
-      // require('karma-coverage-istanbul-reporter'),
+      require('karma-coverage-istanbul-reporter'),
       // require('korma-sonarqube-unit-reporter')
 
     ],
@@ -25,33 +25,33 @@ module.exports = function (config) {
       },
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    // coveragelstanbulReporter: {
+    coveragelstanbulReporter: {
 
-    //   dir: require('path').join(_dirname, 'coverage'),
+      dir: require('path').join(_dirname, 'coverage'),
       
-    //   reports: ['lcovonly'],
+      reports: ['lcovonly'],
       
-    //   fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true
       
-    //   },
+      },
       
-    //   reporters: [ 'sonarqubeUnit' ],
+      reporters: [ 'sonarqubeUnit' ],
       
-    //   sonarQubeUnitReporter: {
+      sonarQubeUnitReporter: {
       
-    //        sonarQubeVersion: 'LATEST',
+           sonarQubeVersion: 'LATEST',
       
-    //        outputfile: 'test-reports/ut_repor.xml',
+           outputfile: 'test-reports/ut_repor.xml',
       
-    //        overrideTestDescription: true,
+           overrideTestDescription: true,
       
-    //        testPaths: ['./src'],
+           testPaths: ['./src'],
       
-    //        testFilePattern: '.spec.ts',
+           testFilePattern: '.spec.ts',
       
-    //        useBrowserName: false
+           useBrowserName: false
       
-    //   },
+      },
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
